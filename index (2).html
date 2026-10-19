@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0c1240">
+<title>Chúc mừng 20/10 – Những vì sao của 12C7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Playfair+Display:wght@600;800&display=swap">
+<style>
+:root{--gold:#ffe3a3;--ink:#f4f0ff;--serif:'Playfair Display',Georgia,'Times New Roman',serif;--sans:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html,body{height:100%;overflow:hidden;background:#070b24;color:var(--ink);font-family:var(--sans)}
+body{background:radial-gradient(ellipse 90% 50% at 50% 115%,#4a2a86 0%,transparent 70%),radial-gradient(ellipse 80% 60% at 15% 0%,#1d2f78 0%,transparent 70%),linear-gradient(#060a22,#0c1240 60%,#1d1250)}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.stage{position:fixed;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 18px;pointer-events:none;visibility:hidden;opacity:0;transition:opacity 1s,visibility 0s 1s}
+.stage.on{visibility:visible;opacity:1;transition:opacity 1s}
+.r{opacity:0;transform:translateY(14px);filter:blur(8px);transition:opacity 1.6s,transform 1.6s,filter 1.6s}
+.r.in{opacity:1;transform:none;filter:none}
+/* Giai đoạn 1 */
+.presents{font:600 clamp(.8rem,3.2vw,1.15rem) var(--sans);letter-spacing:.55em;text-indent:.55em;color:#cfd8ff;margin-bottom:1.3rem}
+.glow{filter:drop-shadow(0 0 14px rgba(255,214,130,.5))}
+.title{font:800 clamp(1.7rem,7.2vw,5rem)/1.12 var(--serif);letter-spacing:.04em;background:linear-gradient(105deg,#e8cf9a 0%,#fff6dc 30%,#fff 45%,#f3d58d 60%,#e8cf9a 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:sweep 3.8s linear infinite}
+@keyframes sweep{from{background-position:150% 0}to{background-position:-100% 0}}
+.vn{font:600 clamp(.85rem,3.6vw,1.45rem)/1.6 var(--sans);letter-spacing:.1em;color:#ffe7b8;margin-top:1.5rem;max-width:92vw;text-shadow:0 0 14px rgba(255,200,120,.5)}
+.vn b{color:#fff;font-size:1.25em}
+/* Giai đoạn 2 */
+.kicker{position:absolute;top:15%;left:0;right:0;font:600 clamp(.75rem,2.8vw,1rem) var(--sans);letter-spacing:.45em;text-indent:.45em;color:#cdd6ff}
+#names{position:relative;width:100%;height:34vh}
+.name{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 5vw;font:800 clamp(1.8rem,7.4vw,4.2rem)/1.15 var(--serif);color:#fff;text-wrap:balance;overflow-wrap:anywhere;text-shadow:0 0 8px rgba(255,255,255,.85),0 0 26px var(--c),0 0 56px var(--c)}
+#count{position:absolute;bottom:9%;left:0;right:0;letter-spacing:.3em;text-indent:.3em;color:var(--gold);font-size:.85rem}
+/* Giai đoạn 3 */
+.scroll{justify-content:flex-start;overflow-y:auto;padding:calc(64px + env(safe-area-inset-top,0px)) 16px 40px;-webkit-overflow-scrolling:touch}
+.scroll.on{pointer-events:auto}
+.card{margin:auto;width:100%;max-width:720px;text-align:center;padding:clamp(1.3rem,4.5vw,2.6rem);border-radius:24px;background:rgba(12,16,58,.58);border:1px solid rgba(255,222,160,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 10px 50px rgba(8,6,40,.6)}
+.wh{font:800 clamp(1.3rem,5.2vw,2.3rem)/1.3 var(--serif);color:#ffe9b8;text-shadow:0 0 18px rgba(255,205,120,.55);margin-bottom:1.2rem}
+.wp{font-size:clamp(1rem,2.9vw,1.2rem);line-height:1.85;margin-bottom:1rem;color:#f4f0ff}
+.sig{font:600 1.05rem var(--serif);letter-spacing:.12em;color:#ffc9e6;margin-top:1.5rem}
+.foot{margin-top:1.5rem;font:italic 600 1.1rem/1.5 var(--serif);color:#ffe9b8}
+.w{display:inline-block;opacity:0}
+.go .w{animation:wIn .9s ease both}
+@keyframes wIn{from{opacity:0;transform:translateY(10px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+#replay{margin-top:1.2rem}
+/* Nút */
+.pill{font:600 .8rem/1 var(--sans);letter-spacing:.06em;color:#fff2cf;background:rgba(18,22,70,.78);border:1px solid rgba(255,221,150,.5);border-radius:99px;padding:.75rem 1.05rem;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 0 14px rgba(255,200,120,.25);touch-action:manipulation}
+.pill:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#music{position:fixed;z-index:10;top:calc(12px + env(safe-area-inset-top,0px));right:12px}
+#music.big{right:auto;left:50%;transform:translateX(-50%);font-size:1rem;padding:.95rem 1.6rem;background:linear-gradient(135deg,#ffd97a,#ff9ec9);color:#2a1245;border:0;white-space:nowrap;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,210,120,.7)}50%{box-shadow:0 0 0 14px rgba(255,210,120,0)}}
+.ytw{position:fixed;left:-9999px;top:0;width:220px;height:220px;overflow:hidden;pointer-events:none}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+
+<section class="stage" id="p1">
+  <p class="r presents" id="l1">12C7 PRESENTS</p>
+  <div class="glow"><h1 class="r title" id="l2">HAPPY VIETNAMESE<br>WOMEN’S DAY</h1></div>
+  <p class="r vn" id="l3">CHÚC MỪNG NGÀY PHỤ NỮ VIỆT NAM <b>20/10</b></p>
+</section>
+
+<section class="stage" id="p2">
+  <p class="kicker">NHỮNG VÌ SAO CỦA 12C7</p>
+  <div id="names"></div>
+  <p id="count" aria-live="polite"></p>
+</section>
+
+<section class="stage scroll" id="p3"><div class="card" id="card"></div></section>
+
+<button id="music" class="pill" type="button" hidden>🎵 BẬT NHẠC</button>
+<div class="ytw" aria-hidden="true"><div id="yt"></div></div>
+
+<script>
+(function(){
+'use strict';
+const NAMES=['Nguyễn Thị Tú Anh','Nguyễn Võ Thủy Chúc','Nguyễn Thị Phương Duyên','Nguyễn Ngọc Hà','Hoàng Thị Ngọc Huyền','Trần Thanh Huyền','Lê Nguyễn Khánh Linh','Quản Thị Thuỳ Linh','Huỳnh Ngọc Kim Ngân','Đoàn Nguyễn Yến Nhi','Nguyễn Ngọc Yến Nhi','Trần Thị Phương Oanh','Lê Thảo Quỳnh','Nguyễn Như Quỳnh','Vũ Thị Minh Thư','Nguyễn Hoàng Ngọc Trang','Nguyễn Ngọc Mai Trang','Nguyễn Hoàng Sa'];
+const WISH=['GỬI NHỮNG BÔNG HOA XINH ĐẸP CỦA 12C7 💐',
+'Chúc các bạn nữ luôn xinh đẹp, tự tin, vui vẻ và rực rỡ theo cách riêng của mình.',
+'Mong rằng tuổi học trò của chúng ta sẽ luôn có thật nhiều tiếng cười, những kỷ niệm đáng nhớ và những người bạn tuyệt vời bên cạnh.',
+'Chúc các bạn luôn được yêu thương, trân trọng và đủ mạnh mẽ để theo đuổi những điều mình mơ ước.',
+'20/10 thật vui vẻ nhé, những cô gái tuyệt vời của 12C7!',
+'— TẬP THỂ 12C7 ❤️'];
+const VID='v6sTjHZbVD0',HUES=[45,332,268,212,38,350];
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const vis=()=>document.hidden?new Promise(r=>{const f=()=>{if(!document.hidden){document.removeEventListener('visibilitychange',f);r()}};document.addEventListener('visibilitychange',f)}):null;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms)).then(vis);
+
+/* ---------- Canvas: sao + pháo hoa ---------- */
+const cv=$('fx'),ctx=cv.getContext('2d');
+const mobile=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)||innerWidth<700;
+const MAXP=mobile?560:1000;
+let W=0,H=0,last=0,raf=0,ambMs=900,ambSoft=false;
+const rockets=[],parts=[];
+const stars=Array.from({length:mobile?80:130},()=>({x:Math.random(),y:Math.random(),r:rnd(.3,1.6),p:rnd(0,6.28),s:rnd(.8,2.8),v:Math.random()<.3?rnd(.03,.14):0}));
+function resize(){
+  const d=Math.min(devicePixelRatio||1,mobile?1.5:2);
+  W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+}
+const baseSp=()=>Math.max(3.6,Math.min(8,Math.min(W,H)*.011));
+function burst(x,y,h,n,sp,type){
+  n=Math.min(n,MAXP-parts.length);
+  for(let i=0;i<n;i++){
+    const t=i/n*6.2832;let vx,vy;
+    if(type==='heart'){const k=sp*.056;vx=16*Math.pow(Math.sin(t),3)*k;vy=-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))*k}
+    else{const a=t+Math.random()*.3,s=type==='ring'?sp:sp*rnd(.3,1);vx=Math.cos(a)*s;vy=Math.sin(a)*s}
+    parts.push({x,y,px:x,py:y,vx,vy,l:1,d:rnd(.007,.016),h:h+rnd(-14,14),li:rnd(62,88),w:rnd(1,2.4),f:type==='heart'?.975:.972,g:type==='heart'?.012:.03});
+  }
+}
+function launch(o){
+  const x0=rnd(W*.12,W*.88);
+  const r=Object.assign({x0,y0:H+8,tx:x0+rnd(-50,50),ty:rnd(H*.14,H*.42),dur:rnd(850,1250),t:0,h:HUES[Math.random()*HUES.length|0],n:mobile?38:66,sp:baseSp()*rnd(.8,1.1),type:['peony','peony','ring','heart'][Math.random()*4|0]},o);
+  if(o&&o.x0!==undefined&&o.tx===undefined)r.tx=o.x0+rnd(-40,40);
+  r.x=r.x0;r.y=r.y0;rockets.push(r);
+}
+function update(dt){
+  for(let i=rockets.length-1;i>=0;i--){
+    const r=rockets[i];r.t+=dt*16.67;
+    const u=Math.min(1,r.t/r.dur),e=1-(1-u)*(1-u),ox=r.x,oy=r.y;
+    r.x=r.x0+(r.tx-r.x0)*e;r.y=r.y0+(r.ty-r.y0)*e;
+    if(parts.length<MAXP&&Math.random()<.7)parts.push({x:r.x,y:r.y,px:ox,py:oy,vx:rnd(-.4,.4),vy:rnd(.3,1),l:.8,d:.04,h:r.h,li:78,w:1.6,f:.95,g:.02});
+    if(u>=1){
+      if(!r.silent){burst(r.x,r.y,r.h,r.n,r.sp,r.type);if(r.type==='peony'&&parts.length<MAXP*.5)burst(r.x,r.y,r.h+45,r.n>>1,r.sp*.5,'peony')}
+      rockets.splice(i,1);
+    }
+  }
+  for(let i=parts.length-1;i>=0;i--){
+    const p=parts[i],f=Math.pow(p.f,dt);
+    p.px=p.x;p.py=p.y;p.vx*=f;p.vy=p.vy*f+p.g*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.l-=p.d*dt;
+    if(p.l<=0)parts.splice(i,1);
+  }
+}
+function draw(t,dt){
+  ctx.globalCompositeOperation='source-over';
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#eef0ff';
+  for(const s of stars){
+    if(s.v){s.y-=s.v*dt/H;if(s.y<0)s.y+=1}
+    ctx.globalAlpha=.3+.7*(.5+.5*Math.sin(t*.001*s.s+s.p));
+    ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,6.2832);ctx.fill();
+  }
+  ctx.globalAlpha=1;ctx.globalCompositeOperation='lighter';ctx.lineCap='round';
+  for(const p of parts){
+    ctx.strokeStyle='hsla('+p.h+',100%,'+p.li+'%,'+Math.min(1,p.l*1.4)+')';
+    ctx.lineWidth=p.w*(.4+.6*p.l);
+    ctx.beginPath();ctx.moveTo(p.px,p.py);ctx.lineTo(p.x+.1,p.y+.1);ctx.stroke();
+  }
+  for(const r of rockets){
+    ctx.fillStyle='hsl('+r.h+',100%,88%)';
+    ctx.beginPath();ctx.arc(r.x,r.y,2.2,0,6.2832);ctx.fill();
+  }
+}
+function loop(t){
+  if(document.hidden){raf=0;return}
+  const dt=Math.min((t-last)/16.67||1,3);last=t;
+  update(dt);draw(t,dt);raf=requestAnimationFrame(loop);
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}});
+addEventListener('resize',resize);
+(function amb(){
+  if(!document.hidden&&ambMs)launch(ambSoft?{n:mobile?24:42,sp:baseSp()*.8}:{});
+  setTimeout(amb,(ambMs||800)*rnd(.7,1.3));
+})();
+addEventListener('click',e=>{
+  if(e.target.closest('button,a'))return;
+  burst(e.clientX,e.clientY,HUES[Math.random()*HUES.length|0],mobile?36:60,baseSp()*.8,'peony');
+  tryMusic();
+});
+
+/* ---------- Kịch bản ---------- */
+const P1=$('p1'),P2=$('p2'),P3=$('p3'),L1=$('l1'),L2=$('l2'),L3=$('l3'),box=$('names'),count=$('count'),card=$('card');
+let running=false;
+function reset(){
+  [P1,P2,P3].forEach(s=>s.classList.remove('on'));
+  [L1,L2,L3].forEach(l=>l.classList.remove('in'));
+  box.innerHTML='';count.textContent='';card.className='card';card.innerHTML='';
+  ambMs=900;ambSoft=false;
+}
+async function showName(i){
+  const h=HUES[i%4],el=document.createElement('div');
+  el.className='name';el.textContent=NAMES[i];el.style.setProperty('--c','hsl('+h+',100%,65%)');
+  box.appendChild(el);
+  count.textContent='✦ '+(i+1)+' / '+NAMES.length+' ✦';
+  el.animate([{opacity:0,transform:'translateY(42vh) scale(.7)',filter:'blur(6px)'},{opacity:1,transform:'none',filter:'blur(0)'}],{duration:450,easing:'cubic-bezier(.15,.75,.3,1)',fill:'forwards'});
+  launch({x0:W/2,tx:W/2,ty:H/2,dur:450,silent:true,h});
+  await sleep(300);
+  launch({});
+  await sleep(1150);
+  const n=mobile?70:110;
+  burst(W/2,H/2,h,n,baseSp(),i%3===2?'heart':'peony');
+  burst(W/2,H/2,h+40,n>>1,baseSp()*.55,'ring');
+  el.animate([{opacity:1,transform:'none',filter:'blur(0)'},{opacity:0,transform:'scale(1.35)',filter:'blur(12px)'}],{duration:350,easing:'ease-in',fill:'forwards'});
+  await sleep(350);
+  el.remove();
+}
+async function finale(){
+  count.textContent='';
+  const n=mobile?12:16;
+  for(let i=0;i<n;i++){launch({x0:(i+.5)/n*W+rnd(-20,20),dur:rnd(700,1000),ty:rnd(H*.12,H*.5),h:HUES[i%HUES.length],type:i%5===0?'heart':'peony'});await sleep(110)}
+  await sleep(1000);
+  launch({x0:W/2,tx:W/2,ty:H*.3,dur:900,type:'heart',n:mobile?90:150,sp:baseSp()*1.3,h:332});
+  await sleep(2200);
+}
+function buildCard(){
+  let d=0;
+  const w=t=>t.split(' ').map(x=>{const s='<span class="w" style="animation-delay:'+d.toFixed(2)+'s">'+x+'</span>';d+=.07;return s}).join(' ');
+  const P=(c,t)=>{const h='<p class="'+c+'">'+w(t)+'</p>';d+=.3;return h};
+  card.innerHTML=P('wh',WISH[0])+WISH.slice(1,5).map(t=>P('wp',t)).join('')+P('sig',WISH[5])+
+    '<p class="foot r" id="foot">Một ngày đặc biệt dành cho những người đặc biệt ✨</p><button class="pill r" id="replay" type="button">↻ Xem lại</button>';
+  card.classList.add('go');
+  return d;
+}
+async function show(){
+  if(running)return;running=true;reset();
+  P1.classList.add('on');
+  await sleep(500);L1.classList.add('in');
+  await sleep(1300);L2.classList.add('in');
+  launch({x0:W*.3,ty:H*.3});launch({x0:W*.7,ty:H*.28});
+  await sleep(2000);L3.classList.add('in');
+  await sleep(4200);
+  P1.classList.remove('on');await sleep(1100);
+  ambMs=0;P2.classList.add('on');await sleep(900);
+  for(let i=0;i<NAMES.length;i++)await showName(i);
+  await finale();
+  P2.classList.remove('on');ambMs=1700;ambSoft=true;
+  await sleep(1000);
+  const d=buildCard();
+  P3.scrollTop=0;P3.classList.add('on');
+  $('replay').addEventListener('click',async()=>{P3.classList.remove('on');tryMusic();await sleep(1000);show()});
+  await sleep(d*1000+600);$('foot').classList.add('in');
+  await sleep(900);$('replay').classList.add('in');
+  running=false;
+}
+
+/* ---------- Nhạc nền (YouTube IFrame API) ---------- */
+const mb=$('music');
+let yt=null,ready=false,playing=false,userOff=false,failed=false,uiOn=false;
+function ui(){
+  mb.hidden=!(uiOn||playing);
+  mb.classList.toggle('big',!playing&&!userOff&&!failed);
+  mb.textContent=failed?'🎵 MỞ NHẠC TRÊN YOUTUBE':playing?'🔊 Nhạc: BẬT':userOff?'🔇 Nhạc: TẮT':'🎵 BẬT NHẠC';
+  mb.setAttribute('aria-pressed',String(playing));
+}
+function tryMusic(){if(ready&&!playing&&!userOff&&!failed){try{yt.playVideo()}catch(e){}}}
+mb.addEventListener('click',()=>{
+  if(failed){window.open('https://www.youtube.com/watch?v='+VID,'_blank','noopener');return}
+  if(playing){userOff=true;playing=false;try{yt.pauseVideo()}catch(e){}}
+  else{userOff=false;if(ready){try{yt.playVideo()}catch(e){}}}
+  ui();
+});
+function loadYT(){
+  const fail=()=>{if(!ready){failed=true;uiOn=true;ui()}};
+  try{
+    window.onYouTubeIframeAPIReady=function(){
+      try{
+        const v={autoplay:1,controls:0,disablekb:1,fs:0,loop:1,playlist:VID,playsinline:1,rel:0,modestbranding:1};
+        if(/^https?:/.test(location.protocol))v.origin=location.origin;
+        yt=new YT.Player('yt',{width:220,height:220,videoId:VID,playerVars:v,events:{
+          onReady:e=>{ready=true;failed=false;try{e.target.setVolume(85);e.target.playVideo()}catch(_){}ui()},
+          onStateChange:e=>{
+            if(e.data===1){playing=true;uiOn=true}
+            else if(e.data===2){playing=false}
+            else if(e.data===0){try{e.target.seekTo(0);e.target.playVideo()}catch(_){}}
+            ui();
+          },
+          onAutoplayBlocked:()=>{playing=false;uiOn=true;ui()},
+          onError:()=>{ready=false;failed=true;uiOn=true;ui()}
+        }});
+      }catch(err){fail()}
+    };
+    const s=document.createElement('script');
+    s.src='https://www.youtube.com/iframe_api';s.async=true;s.onerror=fail;
+    document.head.appendChild(s);
+    setTimeout(()=>{uiOn=true;ui()},2200);
+    setTimeout(fail,9000);
+  }catch(err){fail()}
+}
+
+/* ---------- Khởi động ---------- */
+resize();
+raf=requestAnimationFrame(loop);
+loadYT();
+show().catch(console.error);
+})();
+</script>
+</body>
+</html>
